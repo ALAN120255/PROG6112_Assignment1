@@ -3,13 +3,9 @@ package Q2;
 import java.util.Scanner;
 
 public class Question2 extends Question1 {
-    private String[] userAnswers;
-    private String[] correctAnswers = {"C", "D", "C"};
-    private int marks;
-
+    
     public Question2() {
-        userAnswers = new String[correctAnswers.length];
-        marks = 0;
+        super(new String[] {"C", "D", "C"});
     }
     Scanner userInput = new Scanner(System.in);
     @Override
@@ -71,9 +67,10 @@ public class Question2 extends Question1 {
         System.out.println("Your marks: " + marks + "/3");
 
         for (int i = 0; i < userAnswers.length; i++) {
-            if (!userAnswers[i].equalsIgnoreCase(correctAnswers[i])) {
-                System.out.println("Your answer " + userAnswers[i] + " was suppose to be " + correctAnswers[i]);
-                break;
+            if (userAnswers[i].equalsIgnoreCase(correctAnswers[i])) {
+                System.out.println("Well Done! Keep it up!");
+            } else {
+                System.out.println("Try again next time.");
             }
         }
     }

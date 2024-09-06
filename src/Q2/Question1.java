@@ -3,13 +3,13 @@ package Q2;
 import java.util.Scanner;
 
 public class Question1 {
-    private String[] userAnswers;
-    private String[] correctAnswers = {"B", "A", "B"};
-    private int marks;
+    protected String[] userAnswers;
+    protected String[] correctAnswers = {"B", "A", "B"};
+    protected int marks;
     Scanner userInput = new Scanner(System.in);
 
-    public Question1() {
-        super();
+    public Question1(String[] correctAnswers) {
+        this.correctAnswers = correctAnswers;
         userAnswers = new String[correctAnswers.length];
         marks = 0;
     }
@@ -63,8 +63,10 @@ public class Question1 {
         System.out.println("Your marks: " + marks + "/3");
 
         for (int i = 0; i < userAnswers.length; i++) {
-            if (!userAnswers[i].equalsIgnoreCase(correctAnswers[i])) {
-                System.out.println("Your answer " + userAnswers[i] + " question " + i + " was suppose to be " + correctAnswers[i]);
+            if (userAnswers[i].equalsIgnoreCase(correctAnswers[i])) {
+                System.out.println("Well Done! Keep it up!");
+            } else {
+                System.out.println("Try again next time.");
             }
         }
     }
